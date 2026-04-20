@@ -100,9 +100,7 @@ If these values are not set, fallback defaults are used but may not log in succe
 ## Recommended Workflow
 
 1. Update `.env` with valid Hudl test credentials.
-2. Run `pytest --browser chrome --headless` for CI-style execution.
+2. Run `pytest --headless` for CI-style execution.
 3. Inspect failures in the terminal and update page locators if UI changes.
 
 ---
-
-If you want, I can also add a `pytest.ini` or GitHub Actions workflow for CI execution.

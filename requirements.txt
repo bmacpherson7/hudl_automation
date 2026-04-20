@@ -1,5 +1,4 @@
 selenium
 pytest
 webdriver-manager
-pytest-html
 python-dotenv

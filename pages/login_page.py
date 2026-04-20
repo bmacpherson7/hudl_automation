@@ -21,6 +21,8 @@ class LoginPage(BasePage):
     CONTINUE_BUTTON = (By.CSS_SELECTOR, 'button[name="action"]')
     PASSWORD_TEXTBOX = (By.ID, 'password')
     ERROR_MESSAGE = (By.CLASS_NAME, '_prompt-box-outer')
+    CREATE_ACCOUNT_LINK = (By.LINK_TEXT, 'Create Account')
+    FORGOT_PASSWORD_LINK = (By.LINK_TEXT, 'Forgot Password')
 
     def __init__(self, driver):
         self.driver = driver
@@ -38,6 +40,12 @@ class LoginPage(BasePage):
 
     def click_login(self):
         self.find_element(*self.CONTINUE_BUTTON).click()
+
+    def click_create_account(self):
+        self.find_element(*self.CREATE_ACCOUNT_LINK).click()
+    
+    def click_forgot_password(self):
+        self.find_element(*self.FORGOT_PASSWORD_LINK).click()
 
     def get_error_text(self):
         wait = WebDriverWait(self.driver, 10)

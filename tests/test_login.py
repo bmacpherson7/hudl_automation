@@ -83,3 +83,24 @@ def test_login_without_password(driver):
 
     error_text = login_page.get_error_text()
     assert login_page.MISSING_PASSWORD_ERROR in error_text, 'Should display error for missing password'
+
+# Navigation Test Cases
+
+def test_navigate_to_create_account(driver):
+    """Verifies that the user can navigate to the Create Account page from the login page."""
+    login_page = LoginPage(driver)
+
+    login_page.load()
+    login_page.click_create_account()
+
+    assert login_page.CREATE_ACCOUNT_TITLE in login_page.get_title(), 'Should navigate to Create Account page'
+
+def test_navigate_to_forgot_password(driver):
+    """Verifies that the user can navigate to the Forgot Password page from the login page."""
+    login_page = LoginPage(driver)
+
+    login_page.load()
+    login_page.enter_email(TEST_USER_INVALID_EMAIL)  # Need to enter email to reveal forgot password link
+    login_page.click_forgot_password()
+
+    assert login_page.FORGOT_PASSWORD_TITLE in login_page.get_title(), 'Should navigate to Forgot Password page'
